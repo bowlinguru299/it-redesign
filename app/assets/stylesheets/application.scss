@@ -1,0 +1,253 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+//= require normalize
+
+$dark-blue: darken(#003399, 15%);
+$blue: lighten(#003399, 25%);
+$medium-blue: lighten(#003399, 50%);
+$light-blue: lighten(#003399, 65%);
+
+$red: lighten(#993300, 25%);
+$medium-red: lighten(#993300, 50%);
+
+$yellow: #FFA347;
+$medium-yellow: #FFFFB4;
+
+body{
+  font-family: Helvetica, Arial; 
+  
+}
+
+h1 {
+  font-size: 2.4em;
+  color: $blue;
+}
+
+.container:before,
+.container:after {
+  content: " ";
+  display: table;
+}
+
+.container:after {
+  clear: both;
+}
+
+.post {
+  border-top: 1px solid $blue;
+  padding: 5px 10px 5px 30px;
+  font-size: 1em;
+
+  &:nth-child(even) {
+    background: #FFF;
+  }
+  &:nth-child(odd) {
+    background: $light-blue;
+  }
+  
+  &.new {
+    border-top: 2px solid $yellow;
+    background: $medium-yellow;
+  }
+}
+
+.action {
+  background-color: $blue;
+  padding: 15px 10px;
+  
+  &:before {
+    content: "\e876";
+    font-family: 'Linearicons-Free';
+  }
+}
+
+.author {
+  float: left;
+}
+.utils {
+  float: right;
+}
+
+.ballot {
+  float: left;
+  display: block;
+  
+  margin: 0 5px;
+  border: 1px solid $blue;
+  padding: 5px;
+  
+  background-color: #FFF;
+  
+  font-size: 0.8em;  
+  
+  &:before {
+    font-size: 0.6em;
+    content: "\e873";
+    font-family: 'Linearicons-Free';
+  }
+  
+  &:after {
+    font-size: 0.6em;
+    content: "\e874";
+    font-family: 'Linearicons-Free';
+  }
+}
+
+.vote {
+}
+
+.flag {
+  float: left;
+  display: block;
+  width: 12px;
+  height: 25px;
+  border-top: 0px;
+  margin: -5px 5px 0 5px;
+  
+  position: relative;
+  
+  &:before {
+    width: 0;
+	 height: 0;
+    
+    position: absolute;
+    top: 25px;
+    
+    border: 0 solid transparent;
+	 border-left-width: 6px;
+	 border-right-width: 6px;
+	 border-bottom-width: 4px;
+    content: " ";
+  }
+  
+  .inside{ 
+    display: inline-block;
+    width: 10px;
+    height: 23px;
+    background-color: $medium-blue;
+    border-top: 0px;
+
+    position: relative;
+    left: 1px;
+
+    &:before {
+      width: 0;
+      height: 0;
+
+      position: absolute;
+      top: 23px;
+
+      border: 0 solid transparent;
+      border-left-width: 5px;
+      border-right-width: 5px;
+      border-bottom-width: 4px; 
+      content: " ";
+    }
+  }
+  
+  /* Flag stages */
+  &.active {
+    background-color: $red;
+    
+    &:before {
+      border-left-color: $red;
+      border-right-color: $red;
+    }
+    
+    .inside {
+      background-color: $medium-red;
+      
+      &:before {
+        border-left-color: $medium-red;
+        border-right-color: $medium-red;
+      }
+    }
+  }
+  
+  &.inactive {
+    background-color: $blue;
+    
+    &:before {
+      border-left-color: $blue;
+      border-right-color: $blue;
+    }
+    
+    .inside {
+      background-color: $medium-blue;
+      
+      &:before {
+        border-left-color: $medium-blue;
+        border-right-color: $medium-blue;
+      }
+    }
+  }
+}
+
+.number {
+  float: left;
+  display: block;
+  width: 40px;
+  text-align: right;
+}
+
+.next-thread {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  
+  background-color: $dark-blue;
+  color: $medium-blue;
+  text-decoration: none;
+
+  padding: 10px;
+  
+  /* Slant in */
+  &:before {
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -45px;
+    top: 0;
+    
+    border-bottom: 45px solid $dark-blue;
+    border-left: 45px solid transparent;
+    content:" ";
+  }
+  
+  &:after {
+    content: "\e876";
+    font-family: 'Linearicons-Free';
+    color: $medium-blue;
+  }
+}
+
+.unread-remaining {
+  display: inline-block;
+  background-color: #000;
+  
+  margin: 0 5px 0 0;
+  border: 1px solid $medium-blue;
+  border-radius: 4px;
+  padding: 5px;
+  
+  font-size: 0.6em;
+}
+
+/**
+ * 
+ */
+@media (max-width: 600px) {
+
+}

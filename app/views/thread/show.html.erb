@@ -1,0 +1,28 @@
+<h1>
+	<%= @thread[:title] %>
+</h1>
+
+<%= render partial: 'post', locals: { index: 1, post: @thread[:initial_post]} %>
+
+<div class="action">
+  Show <%= @thread[:hidden_post_count] %> old posts
+  <span style="float:right;" class="lnr lnr-cog"></span>  
+</div>
+<% @thread[:posts].each_with_index do |post, index| %>
+  <%= render partial: 'post', locals: { index: @thread[:hidden_post_count] + index, post: post} %>
+<% end %>
+    
+<div class="action">
+  Post a reply
+</div>
+
+<% if @thread[:next_thread] == "home" %>
+  <%= link_to 'Home', {controller: "home", action: "index"}, {class: "next-thread"} %> 
+<% else %>
+  <%= link_to({controller: "thread", action: "show", id: @thread[:next_thread]}, {class: "next-thread" }) do %> 
+    <div class="unread-remaining">
+  	  13
+    </div>
+    <%= @thread[:next_thread] %>
+  <% end %>
+<% end %>

@@ -1,0 +1,21 @@
+<div class="post <%= post[:new] ? 'new' : '' %>">
+  <div class="meta container">
+  	<div class="author">
+     <%= post[:author] %>
+     <%= post[:date].strftime("on %m/%d/%Y at %I:%M %p") %>
+   </div>
+	<div class="utils container">
+    <div class="ballot">
+     <%= post[:vote_count] %>
+    </div>
+    <div class="flag <%= post[:flagged] ? 'active' : 'inactive' %>"> 
+      <div class="inside"> 
+      </div>
+    </div>
+    <a class="number" href="#<%= index %>"><%= index %></a>
+   </div>
+  </div>
+  <div class="content container">
+    <%= post[:content] %>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-toy-rails-project-for-docker
+IT Redesign
 ============================
 
-A toy rails project for docker deployment
+Redo IT
